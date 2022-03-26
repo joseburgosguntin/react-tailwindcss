@@ -1,27 +1,30 @@
 import './App.css';
 
-const { useState, useEffect } = require("react");
+import { useReducer } from "react";
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'increment':
+            return state + 1;
+        case 'decrement':
+            return state - 1;  
+        default:
+            throw new Error();
+    } 
+}
 
 function App() {
-
-    const [count, setCount] = useState(0)
-    const [loaded, setLoaded] = useState(false)
-    useEffect(() => {
-        alert('hello side effect!')
-
-        return () => alert("goodbye component!")
-    })
-
-    useEffect(() => {
-        fetch('foo').then(() => setLoaded(true) )
-    },
-    [count]
-    )
-
+    const [state, dispatch] = useReducer(reducer, 0);
     return (
-        <button onClick={() => setCount(count + 1)}>
-        {count}
-    </button>) 
+        <div className='text-white  font-bold text-6xl bg-slate-400 '>
+            Count: {state}
+            <div className='flex justify-center'>
+            <button className='w-60 h-60 bg-gradient-to-b from-red-600 to-red-400 rounded-full m-5 hover:shadow-md hover:scale-110' onClick={() => dispatch({ type: 'decrement' })}>-</button>
+            <button className='w-60 h-60 bg-gradient-to-b from-cyan-300 to-cyan-200 rounded-full m-5 hover:shadow-md hover:scale-110' onClick={() => dispatch({ type: 'increment'})}>+</button>
+            </div>
+        </div>
+    )
+    
 }
 
 export default App;
