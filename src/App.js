@@ -19,8 +19,8 @@ function App() {
         <div className='text-white  font-bold text-6xl bg-slate-400 '>
             Count: {state}
             <div className='flex justify-center'>
-            <button className='w-60 h-60 bg-gradient-to-b from-red-600 to-red-400 rounded-full m-5 hover:shadow-md hover:scale-110' onClick={() => dispatch({ type: 'decrement' })}>-</button>
-            <button className='w-60 h-60 bg-gradient-to-b from-cyan-300 to-cyan-200 rounded-full m-5 hover:shadow-md hover:scale-110' onClick={() => dispatch({ type: 'increment'})}>+</button>
+            <button className='w-60 h-60 bg-gradient-to-b from-red-600 to-red-400 rounded-full m-5 hover:shadow-3xl hover:scale-110 hover:rounded-lg ease-linear' onClick={() => dispatch({ type: 'decrement' })}>-</button>
+            <button className='w-60 h-60 bg-gradient-to-b from-cyan-300 to-cyan-200 rounded-full m-5 hover:shadow-3xl hover:scale-110 hover:rounded-lg ease-linear' onClick={() => dispatch({ type: 'increment'})}>+</button>
             </div>
         </div>
     )
